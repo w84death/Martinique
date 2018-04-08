@@ -12,7 +12,8 @@ config_version=3
 
 config/name="Martinique"
 run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://assets/splash.png"
+config/icon="res://assets/icon.png"
 
 [debug]
 
