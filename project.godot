@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=3
+
+[application]
+
+config/name="Martinique"
+run/main_scene="res://main.tscn"
+config/icon="res://icon.png"
+
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/size/width=960
+window/size/height=480
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[rendering]
+
+threads/thread_model=2
+quality/filters/use_nearest_mipmap_filter=true
+quality/shadows/filter_mode=2
+quality/shading/force_vertex_shading=true
+quality/filters/msaa=3
+quality/depth/hdr=false
+environment/default_environment="res://default_env.tres"
