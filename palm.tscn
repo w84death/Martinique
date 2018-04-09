@@ -212,7 +212,9 @@ tracks/6/keys = {
 
 [node name="palm" type="Spatial"]
 
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="bark4" type="MeshInstance" parent="." index="0"]
 

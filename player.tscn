@@ -39,10 +39,10 @@ v_offset = 0.0
 doppler_tracking = 0
 projection = 0
 current = false
-fov = 60.0
+fov = 90.0
 size = 1.0
 near = 1.0
-far = 140.0
+far = 256.0
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="input_event" from="." to="." method="_on_player_input_event"]
