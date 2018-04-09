@@ -10,18 +10,18 @@ source_file="res://assets/tex/hightmap-512.png"
 source_md5="9207eacb32290765248ddf59955ad872"
 
 dest_files=[ "res://.import/hightmap-512.png-0e0a2cfe730695404d1b27b416d53b9a.stex" ]
-dest_md5="bb608c425288b7bf4865683aae7adf91"
+dest_md5="b5a259dcbdc59256f6f3479fb0bc6335"
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.9
+compress/lossy_quality=0.8
 compress/hdr_mode=0
 compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false

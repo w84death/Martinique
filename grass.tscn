@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/anim.vs" type="Script" id=1]
+[ext_resource path="res://assets/tex/grass_falling_down.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "wind"
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("zdzblo:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.4, 3.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 3.73232, 0.241239, 4.53213 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zdzblo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zdzblo2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 8.34441, 90.758, 5.20877 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zdzblo2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.1, 1 ) ]
+}
+
+[node name="grass" type="Spatial"]
+
+script = ExtResource( 1 )
+
+[node name="zdzblo" type="Sprite3D" parent="." index="0"]
+
+transform = Transform( 0.997095, -0.08351, 0.00405822, 0.0761673, 1.09254, -0.0628697, 0.000743657, 0.0691641, 0.998013, 0, 3.19624, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = false
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 1.0
+pixel_size = 0.1
+axis = 2
+transparent = true
+shaded = true
+double_sided = true
+alpha_cut = 2
+texture = ExtResource( 2 )
+vframes = 1
+hframes = 1
+frame = 0
+region_enabled = false
+region_rect = Rect2( 0, 0, 0, 0 )
+_sections_unfolded = [ "Flags", "Transform" ]
+
+[node name="zdzblo2" type="Sprite3D" parent="." index="1"]
+
+transform = Transform( -0.00329678, 0.0751022, 0.997547, 0.0434354, 1.07038, -0.0697183, -0.999051, 0.0462888, -0.00632294, 0, 3.19624, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = false
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 1.0
+pixel_size = 0.1
+axis = 2
+transparent = true
+shaded = true
+double_sided = true
+alpha_cut = 2
+texture = ExtResource( 2 )
+vframes = 1
+hframes = 1
+frame = 0
+region_enabled = false
+region_rect = Rect2( 0, 0, 0, 0 )
+_sections_unfolded = [ "Flags", "Transform" ]
+
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = "wind"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/wind = SubResource( 1 )
+blend_times = [  ]
+
+

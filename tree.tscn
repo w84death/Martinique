@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/tex/rocks-512.png" type="Texture" id=1]
 [ext_resource path="res://grass3.tres" type="Material" id=2]
+[ext_resource path="res://palm.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -81,6 +82,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="bark" type="MeshInstance" parent="." index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25881, 0 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -98,6 +100,7 @@ _sections_unfolded = [ "Geometry", "Transform", "material" ]
 [node name="green_part" type="MeshInstance" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4929, 0 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -111,5 +114,9 @@ mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
+
+[node name="palm" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.79356, 0 )
 
 

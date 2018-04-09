@@ -7,10 +7,10 @@ path="res://.import/splash.png-8aa957744d9f4b764dd4680b37c88571.stex"
 [deps]
 
 source_file="res://assets/splash.png"
-source_md5="62149e88f261935838de98b6e8707788"
+source_md5="cc0cf367eef312de14e29a2768fa474a"
 
 dest_files=[ "res://.import/splash.png-8aa957744d9f4b764dd4680b37c88571.stex" ]
-dest_md5="2d4adec862205c4f0b89dde9f651a036"
+dest_md5="d67ecf4bc864414d6906b948205b4fc6"
 
 [params]
 
