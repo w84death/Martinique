@@ -8,10 +8,10 @@ path.etc2="res://.import/rocks-512.png-33443768f97162ebcada37dc7f362046.etc2.ste
 [deps]
 
 source_file="res://assets/tex/rocks-512.png"
-source_md5="5f9c2d6b79c675913d44264a8d860bd2"
+source_md5="2242e02dd3115bac69f3c81fda84afb8"
 
 dest_files=[ "res://.import/rocks-512.png-33443768f97162ebcada37dc7f362046.s3tc.stex", "res://.import/rocks-512.png-33443768f97162ebcada37dc7f362046.etc2.stex" ]
-dest_md5="5c325808b4c3e32cd074c4e045c6c3b2"
+dest_md5="6cbfbe8cd635f24b2921923986136df9"
 
 [params]
 
