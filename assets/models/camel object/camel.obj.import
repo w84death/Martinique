@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/camel.obj-ab0af0d8d8e379134da85058a0ff7a75.mesh"
+
+[deps]
+
+files=[ "res://.import/camel.obj-ab0af0d8d8e379134da85058a0ff7a75.mesh" ]
+
+source_file="res://assets/models/camel object/camel.obj"
+source_md5="058d98e5f0518ea45ec91838eb0a4698"
+
+dest_files=[ "res://.import/camel.obj-ab0af0d8d8e379134da85058a0ff7a75.mesh", "res://.import/camel.obj-ab0af0d8d8e379134da85058a0ff7a75.mesh" ]
+dest_md5="353fabd44c265fe19615726b70481413"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )

@@ -9,10 +9,10 @@ path="res://.import/palm.obj-c30f67481372c96157ce0e07a621dee2.mesh"
 files=[ "res://.import/palm.obj-c30f67481372c96157ce0e07a621dee2.mesh" ]
 
 source_file="res://assets/models/palm.obj"
-source_md5="5d0bff9846922620eefdf3f0877b5a40"
+source_md5="500b61b87c013848c1d35f55a5b394c1"
 
 dest_files=[ "res://.import/palm.obj-c30f67481372c96157ce0e07a621dee2.mesh", "res://.import/palm.obj-c30f67481372c96157ce0e07a621dee2.mesh" ]
-dest_md5="915dbc5728cf67d608287eb6804e9f3d"
+dest_md5="7cd701d1b3ffd05711037fcc2eb5f30f"
 
 [params]
 

@@ -7,10 +7,12 @@
 
 [node name="zdzblo" parent="." index="0"]
 
+transform = Transform( 0.997095, -0.08351, 0.00405822, 0.0761673, 1.09254, -0.0628697, 0.000743657, 0.0691641, 0.998013, 0, 5.82689, 0 )
 texture = ExtResource( 2 )
 
 [node name="zdzblo2" parent="." index="1"]
 
+transform = Transform( -0.00329678, 0.0751022, 0.997547, 0.0434354, 1.07038, -0.0697183, -0.999051, 0.0462888, -0.00632294, 0, 5.82689, 0 )
 texture = ExtResource( 2 )
 
 
