@@ -1,9 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://assets/water/ocean_albedo.png" type="Texture" id=1]
-[ext_resource path="res://assets/water/foam_alpha.png" type="Texture" id=2]
-[ext_resource path="res://assets/water/foam.png" type="Texture" id=3]
-[ext_resource path="res://assets/water/shore.png" type="Texture" id=4]
+[ext_resource path="res://assets/tex/water.png" type="Texture" id=1]
 
 [sub_resource type="Shader" id=1]
 
@@ -263,130 +260,14 @@ float triangle_wave(float input, float t, float crests)
 	return fract((input - t) * crests)*input;
 }
 
-
-void fragment() {
-	float rtot = 0.7071067811865476; // root two over two
-	
-	float time = TIME; //TIME;
-	if (debug_time_invariant)
-	{
-		time = 1.0;
-	}
-	
-	SPECULAR = specular;
-	ROUGHNESS = roughness;
-	
-	
-	vec4 albedo_tex;
-	if (world_triplanar)
-	{
-		albedo_tex = triplanar_texture(texture_albedo, uv_power_normal, uv_tri);
-	}
-	else
-	{
-		albedo_tex = texture(texture_albedo, UV);
-	}
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	
-	/* Refraction
-	 * How this works: we get the normal and multiply it by the refraction value & texture. More refraction means light is bent more away from normal's direction.
-	 * we then grab the part of the screen texture (via it's UV coords) by taking shifting the regular Screen UV by our \"enhanced\" refraction normal.
-	 * Refraction amount is how much light we are emitting from the other side. This is proportional to albedo opacity, and gated by refraction_opacity.
-	 * Finally we do a lookup for the light value from the screen, taking surface roughness into account (lower roughness means higher detail)
-	 * The light we get from the screen gets multiplied by the refraction amount, and then we emit it in EMISSION. It's a nice way to fake opacity.
-	 * Albedo is darkened to compensate for the extra light coming from the screen behind this material.
-	 */
-	if (refraction_enabled) 
-	{
-		vec4 ref_tex;
-		if (world_triplanar)
-		{
-			ref_tex = triplanar_texture(texture_refraction, uv_power_normal, refraction_uv_tri);
-		}
-		else
-		{
-			ref_tex = texture(texture_refraction,refraction_uv);
-		}
-		vec3 ref_normal = NORMAL;
-		vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(ref_tex, refraction_texture_channel) * refraction;
-		float ref_amount = (1.0 - albedo.a * albedo_tex.a) * refraction_opacity;
-		EMISSION += textureLod(SCREEN_TEXTURE,ref_ofs,ROUGHNESS * 8.0).rgb * ref_amount;
-		ALBEDO *= 1.0 - ref_amount;
-		ALPHA = 1.0;
-	}
-	else
-	{
-		ALPHA = albedo.a * albedo_tex.a;
-	}
-	
-	/* Sea Foam
-	 * override refraction and add to albedo
-	 * scale foam opacity by height of a few of the vertex waves. 
-	 */
-	if (foam_enabled)
-	{
-		vec4 foam_tex;
-		
-		if (world_triplanar)
-		{
-			foam_tex = triplanar_texture(texture_foam, uv_power_normal, uv_tri);
-			foam_tex.a *= clamp(foam_alpha, 0.0, 1.0);
-		}
-		else
-		{
-			foam_tex = texture(texture_foam, UV);
-			foam_tex.a *= clamp(foam_alpha, 0.0, 1.0);
-		}
-		EMISSION *= (1.0-foam_tex.a); // block emission
-		ALBEDO = ALBEDO*(1.0-foam_tex.a) + foam_tex.rgb*foam_tex.a; // overwrite albedo
-	}
-	
-	if (shore_enabled)
-	{
-		vec4 foam_tex;
-		float shore_alpha;
-		// doh ho ho... increase foam alpha close to other objects!
-		
-	    float zdepth = linearize(texture(DEPTH_TEXTURE, SCREEN_UV).r);
-	    float zpos = linearize(FRAGCOORD.z);
-	    float diff = zdepth - zpos;
-		//if (diff < 1.0)
-		{
-			shore_alpha = 1.0 - diff / 20.0;
-		}
-		shore_alpha = 2.0 * triangle_wave(shore_alpha, time/3.5, 1.5);
-		
-		
-//		final_foam_alpha = diff;
-		
-		if (world_triplanar)
-		{
-			foam_tex = triplanar_texture(texture_shore, uv_power_normal, uv_tri);
-			foam_tex.a *= clamp(shore_alpha, 0.0, 1.0);
-		}
-		else
-		{
-			foam_tex = texture(texture_shore, UV);
-			foam_tex.a *= clamp(shore_alpha, 0.0, 1.0);
-		}
-		EMISSION *= (1.0-foam_tex.a); // block emission
-		ALBEDO = ALBEDO*(1.0-foam_tex.a) + foam_tex.rgb*foam_tex.a; // overwrite albedo
-	}
-	
-	// Distance fade
-	if (distance_fade_enabled)
-	{
-		// TODO: disable the rest of the shader at 0 alpha
-		ALPHA*=clamp(smoothstep(distance_fade_min,distance_fade_max,-VERTEX.z),0.0,1.0);
-	}
-}"
+"
 _sections_unfolded = [ "Resource" ]
 
 [resource]
 
 render_priority = 0
 shader = SubResource( 1 )
-shader_param/albedo = Color( 0.496094, 1, 0.976379, 0.961333 )
+shader_param/albedo = Color( 1, 1, 1, 0.961333 )
 shader_param/albedo_wave_enabled = true
 shader_param/foam_enabled = false
 shader_param/shore_enabled = false
@@ -436,8 +317,8 @@ shader_param/Speed5 = 1.0
 shader_param/near = null
 shader_param/far = null
 shader_param/texture_albedo = ExtResource( 1 )
-shader_param/texture_foam = ExtResource( 2 )
-shader_param/texture_shore = ExtResource( 4 )
-shader_param/texture_refraction = ExtResource( 3 )
+shader_param/texture_foam = ExtResource( 1 )
+shader_param/texture_shore = ExtResource( 1 )
+shader_param/texture_refraction = ExtResource( 1 )
 _sections_unfolded = [ "shader_param" ]
 

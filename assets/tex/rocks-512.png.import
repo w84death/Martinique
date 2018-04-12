@@ -11,7 +11,7 @@ source_file="res://assets/tex/rocks-512.png"
 source_md5="2242e02dd3115bac69f3c81fda84afb8"
 
 dest_files=[ "res://.import/rocks-512.png-33443768f97162ebcada37dc7f362046.s3tc.stex", "res://.import/rocks-512.png-33443768f97162ebcada37dc7f362046.etc2.stex" ]
-dest_md5="6cbfbe8cd635f24b2921923986136df9"
+dest_md5="8898bdc31a2b99f143841d2a9fd3b43d"
 
 [params]
 
@@ -22,9 +22,9 @@ compress/normal_map=0
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=1
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
