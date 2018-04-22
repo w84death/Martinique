@@ -11,13 +11,13 @@ func _ready():
 	
 func _process(delta):
 
-	if Input.is_key_pressed(KEY_W):
+	if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP) or Input.is_mouse_button_pressed(1):
 		translate(Vector3(0, 0, speed*delta))
-	if Input.is_key_pressed(KEY_S):
+	if Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN) or Input.is_mouse_button_pressed(2):
 		translate(Vector3(0, 0, -speed*delta))
-	if Input.is_key_pressed(KEY_A):
+	if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT):
 		translate(Vector3(speed*delta, 0, 0))
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT):
 		translate(Vector3(-speed*delta, 0, 0))
 
 	if Input.is_key_pressed(KEY_E):
